@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "com.cainiao.funandroid"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    /**
+     * 解决 Error: Static interface methods are only supported starting with Android N (--min-api 24):
+     * void butterknife.Unbinder.lambda$static$0()
+     */
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation("com.squareup.okhttp3:okhttp:3.12.1")
+
+    implementation("org.greenrobot:eventbus:3.0.0")
+
+    implementation("com.alibaba:fastjson:1.2.24")
+
+    implementation("com.android.support:support-v4:28.0.0")
+    implementation("com.android.support:recyclerview-v7:28.0.0")
+    implementation("com.android.support:cardview-v7:28.0.0")
+    implementation("com.android.support:appcompat-v7:28.0.0")
+    implementation("com.android.support:design:28.0.0")
+    implementation("com.android.support:support-annotations:28.0.0")
+
+    implementation("com.jakewharton:butterknife:10.0.0")
+    annotationProcessor("com.jakewharton:butterknife-compiler:10.0.0")
+    /**
+     * 添加annotationProcessor 解决
+     * Annotation processors must be explicitly declared now.
+     * The following dependencies on the compile classpath are found to contain annotation processor.
+     * Please add them to the annotationProcessor configuration.
+     *   - butterknife-compiler-10.0.0.jar (com.jakewharton:butterknife-compiler:10.0.0)
+     *
+     * Alternatively, set android.defaultConfig.javaCompileOptions.annotationProcessorOptions.includeCompileClasspath = true to continue with previous behavior.
+     * Note that this option is deprecated and will be removed in the future.
+     */
+
+    implementation("com.airbnb.android:lottie:2.7.0")
+
+    implementation("com.github.Aspsine:SwipeToLoadLayout:1.0.4")
+
+    // fresco
+    implementation("com.facebook.fresco:fresco:1.12.1")
+    implementation("com.facebook.fresco:imagepipeline-okhttp3:1.12.1")
+    implementation("com.facebook.fresco:animated-gif:1.12.1")
+
+}
