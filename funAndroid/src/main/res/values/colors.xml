@@ -431,7 +431,7 @@
         <item name="android:windowBackground">@color/transparent</item>
     </style>
 
-    <style name="UnifiedZiroomDialogTheme" parent="android:Theme.Dialog">
+    <style name="UnifiedDialogTheme" parent="android:Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowIsFloating">true</item>
         <!-- 对话框是否浮动 -->

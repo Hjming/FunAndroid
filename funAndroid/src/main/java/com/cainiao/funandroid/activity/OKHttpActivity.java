@@ -3,30 +3,8 @@ package com.cainiao.funandroid.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import com.cainiao.funandroid.R;
-import com.cainiao.funandroid.net.okhttp.FunOkhttpCall;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
-import okhttp3.Address;
-import okhttp3.Cache;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.Route;
-import okhttp3.internal.Util;
-import okhttp3.internal.cache.CacheRequest;
-import okhttp3.internal.cache.DiskLruCache;
-import okhttp3.internal.connection.RealConnection;
-import okhttp3.internal.connection.StreamAllocation;
-import okhttp3.internal.http.HttpHeaders;
-import okhttp3.internal.http.HttpMethod;
 
 public class OKHttpActivity extends AppCompatActivity {
 

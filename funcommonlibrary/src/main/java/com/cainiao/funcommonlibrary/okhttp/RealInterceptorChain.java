@@ -1,4 +1,4 @@
-package com.cainiao.funandroid.net;
+package com.cainiao.funcommonlibrary.okhttp;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,11 +10,11 @@ import okhttp3.EventListener;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.internal.Util;
 import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.http.HttpCodec;
 
-import static okhttp3.internal.Util.checkDuration;
 
 /**
  * A concrete interceptor chain that carries the entire interceptor chain: all application
@@ -59,7 +59,7 @@ public final class RealInterceptorChain implements Interceptor.Chain {
     }
 
     @Override public Interceptor.Chain withConnectTimeout(int timeout, TimeUnit unit) {
-        int millis = checkDuration("timeout", timeout, unit);
+        int millis = Util.checkDuration("timeout", timeout, unit);
         return new RealInterceptorChain(interceptors, streamAllocation, httpCodec, connection, index,
                 request, call, eventListener, millis, readTimeout, writeTimeout);
     }
@@ -69,7 +69,7 @@ public final class RealInterceptorChain implements Interceptor.Chain {
     }
 
     @Override public Interceptor.Chain withReadTimeout(int timeout, TimeUnit unit) {
-        int millis = checkDuration("timeout", timeout, unit);
+        int millis = Util.checkDuration("timeout", timeout, unit);
         return new RealInterceptorChain(interceptors, streamAllocation, httpCodec, connection, index,
                 request, call, eventListener, connectTimeout, millis, writeTimeout);
     }
@@ -79,7 +79,7 @@ public final class RealInterceptorChain implements Interceptor.Chain {
     }
 
     @Override public Interceptor.Chain withWriteTimeout(int timeout, TimeUnit unit) {
-        int millis = checkDuration("timeout", timeout, unit);
+        int millis = Util.checkDuration("timeout", timeout, unit);
         return new RealInterceptorChain(interceptors, streamAllocation, httpCodec, connection, index,
                 request, call, eventListener, connectTimeout, readTimeout, millis);
     }

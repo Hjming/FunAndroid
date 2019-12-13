@@ -1,1 +1,1 @@
-include ':funAndroid'
+include ':funAndroid', ':funcommonlibrary'
