@@ -14,8 +14,9 @@ public class Constant {
     /**
      * 崩溃日志打印开关
      */
-    public static final int YIWANCHENG = 10; // 已完成
+    public static boolean ERROR_DEBUG = true;
 
+    public static final int YIWANCHENG = 10; // 已完成
     public static final String AREACODE = "areacode";
     public static final String MYAREAID = "myareaid";
 
@@ -25,6 +26,7 @@ public class Constant {
         public static final String UID = "uid";
         public static final String LOGIN_NAME = "loginName";
         public static final String TOKEN = "token";
+        public static final String KEY_LOGIN_INFO = "login_info";
     }
 
 
@@ -94,6 +96,53 @@ public class Constant {
         public static final String NET_EXCEPTION_ERROR = "网络请求失败，请检查网络连接";
         public static final String SDATA_EXCEPTION_ERROR = "请求数据失败！";
         public static final String JDATA_EXCEPTION_ERROR = "解析数据失败！";
+    }
+
+    /**
+     * Sp存储的key常量容器
+     */
+    public static class SpKeyContainer {
+
+        /**
+         * Other
+         */
+        public static class OTHER {
+            /**
+             * 其他需要存储的sp 文件名
+             */
+            public static final String OTHER_CASE_KEY = "othercase_key"; // 其他需要存储的
+
+            /**
+             * appid 存储的sp key
+             */
+            public static final String APPID_VALUE = "appid_value"; // 其他需要存储的
+            /**
+             * userAgent存储的sp key
+             */
+            public static final String USER_AGENT = "mUserAgent"; // 其他需要存储的
+
+
+            /**
+             * 保存服务器时间和系统时间的差值 的sp文件名
+             */
+            public static final String WEB_GATEWAY_DIFFTIME = "Web_gateway_difftime"; // 其他需要存储的
+
+            /**
+             * 保存服务器时间和系统时间的差值 的key
+             */
+            public static final String GATEWAY_DIFFTIME = "gateway_difftime"; // 其他需要存储的
+
+
+            /**
+             * 彩蛋需要的webtype sp文件名
+             */
+            public static final String WEB_TYPE = "Web_Type";
+            /**
+             * 彩蛋需要的webtype sp key
+             */
+            public static final String WEBTYPE = "webType";
+
+        }
     }
 
 }

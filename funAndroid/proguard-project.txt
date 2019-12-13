@@ -1,0 +1,202 @@
+# To enable ProGuard in your project, edit project.properties
+# to define the proguard.Config property as described in that file.
+#
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in ${sdk.dir}/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the ProGuard
+# include property in project.properties.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+-optimizationpasses 5
+-dontoptimize
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontpreverify
+-verbose
+-dontwarn
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-keepattributes InnerClasses,SourceFile,LineNumberTable
+-ignorewarnings
+
+#-libraryjars libs/jpush-sdk-release1.6.3.jar
+#-libraryjars libs/umeng-analytics-v5.2.3.jar
+#-libraryjars libs/UPPayAssistEx.jar
+#-libraryjars libs/UPPayPluginEx.jar
+#-libraryjars libs/ShareSDK-Core-2.6.4.jar
+#-libraryjars libs/ShareSDK-QQ-2.6.4.jar
+#-libraryjars libs/ShareSDK-QZone-2.6.4.jar
+#-libraryjars libs/ShareSDK-SinaWeibo-2.6.4.jar
+#-libraryjars libs/ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar
+#-libraryjars libs/locSDK_5.0.jar
+#-libraryjars libs/clientforandroid.jar
+#-libraryjars libs/libammsdk.jar
+#-libraryjars libs/tbs_sdk_thirdapp_v3.0.0.1038_43000_sharewithdownload_obfs_20170110_144724.jar
+
+
+-dontwarn android.support.**
+
+-keep class android.net.http.SslError
+-keep class android.webkit.**{*;}
+
+
+-keepattributes Annotation
+-dontwarn okhttp3.**
+-keep class okhttp3.** { *;}
+-keep interface okhttp3.** { *;}
+
+-dontwarn okio.**
+
+-dontwarn ch.imvs.sdes4j.**
+-keep class ch.imvs.sdes4j.sdes4j** { *; }
+-keep class com.hyphenate.** {*;}
+-dontwarn  com.hyphenate.**
+-dontwarn org.apache.**
+-keep class org.apache.** { *; }
+-dontwarn org.ice4j.**
+-keep class org.ice4j.** { *; }
+-dontwarn org.slf4j.**
+-keep class org.slf4j.** { *; }
+
+-dontwarn com.alibaba.fastjson.**
+-keep class com.alibaba.fastjson.*.** {*; }
+
+-dontwarn com.facebook.**
+-keep class com.facebook.**{ *; }
+
+-keepclassmembers class * {
+public <methods>;
+}
+
+-keepattributes Signature
+
+-dontwarn com.nostra13.universalimageloader.**
+-keep class com.nostra13.universalimageloader*.** {*; }
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.support.v4.app.FragmentActivity
+-keep public class * extends android.support.v4.app.Fragment
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+#butterknife
+-keep public class * implements butterknife.internal.ViewBinder { public <init>(); }
+-keep class butterknife.*
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-keep class **$$ViewBinder { *; }
+-keepclasseswithmembernames class * { @butterknife.* <methods>; }
+-keepclasseswithmembernames class * { @butterknife.* <fields>; }
+
+
+# eventbus 开始
+-keepattributes *Annotation*
+-keepclassmembers class ** {
+    @org.greenrobot.eventbus.Subscribe <methods>;
+}
+-keep enum org.greenrobot.eventbus.ThreadMode { *; }
+
+# Only required if you use AsyncExecutor
+-keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
+    <init>(java.lang.Throwable);
+}
+# eventbus 结束
+
+# testin AB
+-keep class cn.testin.analysis.** {*;}
+
+# 网宿 start
+-keep class com.mato.** { *; }
+ -dontwarn com.mato.**
+ -keepattributes Exceptions, Signature, InnerClasses
+# 网宿 end
+
+-keep  class android.net.compatibility.** {*; }
+-dontwarn android.net.compatibility.**
+
+-keep  class android.net.http.** {*; }
+-dontwarn android.net.http.**
+
+-keep  class android.internal.http.multipart.** {*; }
+-dontwarn android.internal.http.multipart.**
+
+
+# OkHttp
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn com.squareup.okhttp.**
+-keep class okio.**{*;}
+-keep class com.squareup.okhttp.** { *; }
+-keep interface com.squareup.okhttp.** { *; }
+
+-dontwarn java.nio.file.*
+-dontwarn javax.annotation.**
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+
+# Image Loader
+-keep class com.squareup.picasso.Picasso
+-keep class com.android.volley.toolbox.Volley
+-keep class com.bumptech.glide.Glide
+-keep class com.nostra13.universalimageloader.core.ImageLoader
+-keep class com.facebook.drawee.backends.pipeline.Fresco
+
+### greenDAO 3
+-keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {
+public static java.lang.String TABLENAME;
+}
+
+-keep class **$Properties
+-keep public class com.android.vending.licensing.ILicensingService
+# If you do not use SQLCipher:
+-dontwarn org.greenrobot.greendao.database.**
+# If you do not use RxJava:
+-dontwarn rx.**
+-keep,includedescriptorclasses class * extends com.ziroom.datacenter.base.BaseBean { *; }
+
+-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+   public *;
+}
+
+
+-keep class com.squareup.wire.** { *; }
+-keep class com.opensource.svgaplayer.proto.** { *; }
+
+
+# 百度地图
+-keep class com.baidu.** {*;}
+-keep class mapsdkvi.com.** {*;}
+-dontwarn com.baidu.**

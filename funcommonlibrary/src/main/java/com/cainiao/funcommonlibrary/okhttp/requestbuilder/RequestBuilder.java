@@ -2,6 +2,7 @@ package com.cainiao.funcommonlibrary.okhttp.requestbuilder;
 
 import android.text.TextUtils;
 
+import com.cainiao.funcommonlibrary.okhttp.HttpUtil;
 import com.cainiao.funcommonlibrary.okhttp.body.BodyWrapper;
 import com.cainiao.funcommonlibrary.okhttp.callback.OkCallback;
 import com.cainiao.funcommonlibrary.okhttp.callback.OkProgressCallback;
