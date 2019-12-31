@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.cainiao.funandroid.R;
 
+
 public class OKHttpActivity extends AppCompatActivity {
 
     private static final String TAG = "OKHttpActivity";
@@ -14,36 +15,37 @@ public class OKHttpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_okhttp);
-        /**
-         * 步骤:
-         *  1、创建OkHttpClient，http请求的客户端类，两种创建方式
-         *      （1）OkHttpClient okHttpClient = new OkHttpClient();
-         *      （2）OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
-         *  2、创建Request，Request携带请求信息
-         *  3、创建Call,将Request封装成Call对象
-         *     Call call = okHttpClient.newCall(request);
-         *
-         *  4、创建Response
-         *      4.1、同步 Response response = call.execute();  // 发起网络请求
-         *      4.2、异步 Response response = call.enqueue();  // 发起网络请求
-         */
+/**
+ * 步骤:
+ *  1、创建OkHttpClient，http请求的客户端类，两种创建方式
+ *      （1）OkHttpClient okHttpClient = new OkHttpClient();
+ *      （2）OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
+ *  2、创建Request，Request携带请求信息
+ *  3、创建Call,将Request封装成Call对象
+ *     Call call = okHttpClient.newCall(request);
+ *
+ *  4、创建Response
+ *      4.1、同步 Response response = call.execute();  // 发起同步网络请求
+ *      4.2、异步 Response response = call.enqueue();  // 发起异步网络请求
+ */
 
 
-//        new Thread() {
-//            @Override
-//            public void run() {
-//                super.run();
-//                syncRequest();
-//            }
-//        }.start();
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                syncRequest();
+            }
+        }.start();
 
 
     }
 
-//      /**
-     //     * 同步请求
-     //     */
-//    public void syncRequest() {
+
+    /**
+     * 同步请求
+     */
+    public void syncRequest() {
 //        // OkHttpClient okHttpClient = new OkHttpClient();
 //
 //        /**
@@ -54,8 +56,8 @@ public class OKHttpActivity extends AppCompatActivity {
 //
 //        // 构建Request，Request携带请求报文信息
 //        Request request = new Request.Builder()
-//                .url()
-//                .method()
+//                .url("")
+//                .method("GET")
 //                .header()
 //                .build();
 //
@@ -75,10 +77,13 @@ public class OKHttpActivity extends AppCompatActivity {
 //
 //    }
 //
-//    /**
-//     * 异步请求
-//     */
-//    public void asyncRequest() {
+
+    }
+
+    /**
+     * 异步请求
+     */
+    public void asyncRequest() {
 //        OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
 //
 //        Request request = new Request.Builder()
@@ -201,21 +206,21 @@ public class OKHttpActivity extends AppCompatActivity {
 //                Log.e(TAG, response.body().toString());
 //            }
 //        });
-//
-//    }
-//
-//    /**
-//     * 拦截器是OKHttp中提供的一种强大机制，它可以实现网络监听、请求以及响应重写、请求失败重试等功能。
-//     *
-//     * 拦截器不区分同步和异步。
-//     */
-//
-//
-//    /**
-//     * 缓存
-//     */
-//    public void cacheRequest() {
-//
+
+    }
+
+    /**
+     * 拦截器是OKHttp中提供的一种强大机制，它可以实现网络监听、请求以及响应重写、请求失败重试等功能。
+     *
+     * 拦截器不区分同步和异步。
+     */
+
+
+    /**
+     * 缓存
+     */
+    public void cacheRequest() {
+
 //        OkHttpClient okHttpClient = new OkHttpClient.Builder()
 //                .cache(new Cache(new File("cache"), 20 * 1024 * 1024))
 //                .build();
@@ -242,6 +247,7 @@ public class OKHttpActivity extends AppCompatActivity {
 //
 //    /**
 //     * Cache 类 get()方法 取缓存
+//     *
 //     * @param request
 //     * @return
 //     */
@@ -279,6 +285,7 @@ public class OKHttpActivity extends AppCompatActivity {
 //
 //    /**
 //     * Cache 类 put()方法  存缓存
+//     *
 //     * @param response
 //     * @return
 //     */
@@ -332,7 +339,6 @@ public class OKHttpActivity extends AppCompatActivity {
 //     */
 //
 //
-//
 //    /**
 //     * Returns a recycled connection to {@code address}, or null if no such connection exists. The
 //     * route is null if the address has not yet been routed.
@@ -361,8 +367,8 @@ public class OKHttpActivity extends AppCompatActivity {
 //
 //
 //    /**
-//     *
 //     * StreamAllocation 类中的 acquire
+//     *
 //     * @param connection
 //     * @param reportedAcquired
 //     */
@@ -378,5 +384,7 @@ public class OKHttpActivity extends AppCompatActivity {
 //        connection.allocations.add(new StreamAllocation.StreamAllocationReference(this, callStackTrace));
 //    }
 
+//}
 
+    }
 }

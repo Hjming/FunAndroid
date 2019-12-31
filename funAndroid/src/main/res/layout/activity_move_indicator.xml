@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_kotlin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
+
+    </android.support.v4.view.ViewPager>
+
+    <!-- 包一层线性布局,让红点覆盖在 LinearLayout中的第一个点上
+    原理: RelativeLayout 中的控件默认都在左上角,这样两个控件就会重叠.-->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp">
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+            android:background="#ffffff"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_red_dot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/circle_red" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

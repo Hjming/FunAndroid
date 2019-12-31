@@ -27,4 +27,25 @@
         android:textSize="@dimen/sp_15"
         app:layout_constraintTop_toBottomOf="@+id/tv_okhttp" />
 
+    <TextView
+        android:id="@+id/tv_kotlin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:gravity="center"
+        android:text="kotlin"
+        android:textColor="@color/color_ct1_85"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintTop_toBottomOf="@+id/tv_RxJava" />
+
+    <TextView
+        android:id="@+id/tv_opreator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:gravity="center"
+        android:text="Rxjava 操作符"
+        android:textColor="@color/color_ct1_85"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintTop_toBottomOf="@+id/tv_kotlin" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

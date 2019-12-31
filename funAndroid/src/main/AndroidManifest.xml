@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cainiao.funandroid">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".FunApplication"
         android:allowBackup="true"
@@ -11,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.OKHttpActivity"></activity>
+        <activity android:name=".activity.RxJavaOperatorActivity"></activity>
+        <activity android:name=".activity.RxjavaRetrofitActivity" />
+        <activity android:name=".activity.MoveIndicatorActivity" />
+        <activity android:name=".activity.OKHttpActivity" />
         <activity android:name=".activity.RxJavaActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -9,8 +9,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cainiao.funandroid.activity.MoveIndicatorActivity;
 import com.cainiao.funandroid.activity.OKHttpActivity;
 import com.cainiao.funandroid.activity.RxJavaActivity;
+import com.cainiao.funandroid.activity.RxJavaOperatorActivity;
 import com.cainiao.funcommonlibrary.util.ToastUtil;
 
 import butterknife.BindView;
@@ -23,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     TextView tvOkhttp;
     @BindView(R.id.tv_RxJava)
     TextView tvRxJava;
+    @BindView(R.id.tv_kotlin)
+    TextView tvKotlin;
+    @BindView(R.id.tv_opreator)
+    TextView tvOpreator;
     private Context mContext;
 
     private long mFirstTime;
@@ -36,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.tv_okhttp, R.id.tv_RxJava})
+    @OnClick({R.id.tv_okhttp, R.id.tv_RxJava, R.id.tv_kotlin,R.id.tv_opreator})
     public void onViewClicked(View view) {
         Intent intent = null;
         switch (view.getId()) {
@@ -49,11 +55,20 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(this, RxJavaActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.tv_kotlin:
+                intent = new Intent(this, MoveIndicatorActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.tv_opreator:
+                intent = new Intent(this, RxJavaOperatorActivity.class);
+                startActivity(intent);
+                break;
+
         }
     }
 
     /**
-     * 退出程序
+     退出程序
      */
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
@@ -61,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             long secondTime = System.currentTimeMillis();
             if (secondTime - mFirstTime > 2000) {
                 // 如果两次按键时间间隔大于800毫秒，则不退出
-                ToastUtil.showToast( "再按一次可退出程序");
+                ToastUtil.showToast("再按一次可退出程序");
                 // 更新firstTime
                 mFirstTime = secondTime;
                 return true;
@@ -70,5 +85,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return super.onKeyUp(keyCode, event);
+    }
+
+    @OnClick(R.id.tv_opreator)
+    public void onViewClicked() {
     }
 }
